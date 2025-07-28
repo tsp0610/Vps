@@ -1,13 +1,12 @@
 # ASCII Art
 ascii_art="
-
-       _ _     _                 
-      | (_)   | |                
-      | |_ ___| |__  _ __  _   _ 
-  _   | | / __| '_ \| '_ \| | | |
- | |__| | \__ \ | | | | | | |_| |
-  \____/|_|___/_| |_|_| |_|\__,_|
-                                 
+  _______ _____ _____  
+ |__   __/ ____|  __ \ 
+    | | | (___ | |__) |
+    | |  \___ \|  ___/ 
+    | |  ____) | |     
+    |_| |_____/|_|     
+                      
 "
 
 # Colors
@@ -20,6 +19,7 @@ NC='\033[0m' # No Color
 
 # Clear the screen
 clear
+
 # Check if the script is run as root
 if [ "$EUID" -ne 0 ]; then
   echo -e "${RED}Please run this script as root.${NC}"
@@ -27,7 +27,6 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 echo -e "${CYAN}$ascii_art${NC}"
-
 
 echo "* Installing Dependencies"
 
@@ -43,13 +42,10 @@ echo_message "* Installed Dependencies"
 echo "* panel owner hopingboyz"
 
 # Create directory, clone repository, and install files
-
 git clone https://github.com/dragonlabsdev/v3panel && cd v3panel && apt install zip -y && unzip panel.zip && cd panel && npm install && npm run seed && npm run createUser && npm i -g pm2 && pm2 start .
 
 echo_message "* Installed Files"
 
 echo_message "* Starting Skyport"
-
-
 
 echo "* Skyport Installed and Started on Port 3001"
